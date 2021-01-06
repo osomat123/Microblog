@@ -9,7 +9,7 @@ import os
 from pymongo import MongoClient
 import datetime
 
-client = MongoClient("mongodb+srv://tejpunj:steelchair111@microblog.a8b2r.mongodb.net/test")
+client = MongoClient("mongodb+srv://xxxxxxxxxxxxxxxxxxxx@microblog.a8b2r.mongodb.net/test")
 app.db = client.microblog
 
 
