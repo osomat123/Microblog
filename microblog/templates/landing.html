@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblog</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/landing-styles.css')}}" />
+    <link rel="icon" href="{{url_for('static', filename='css/logo.svg')}}" />
+</head>
+<body>
+    <main class="main">
+        <div class="main__brand-links">
+            <div class="main__brand">
+                <img class="main__brand-logo" src="{{url_for('static', filename='images/logo-big.svg')}}" alt="Microblog Logo" /> Microblog
+            </div>
+            <div class="main__links">
+                <a href="login" class="link">
+                    <div class="button-link">Login</div>
+                </a>
+                <a href="register" class="link">
+                    <div class="button-link">Register</div>
+                </a>
+            </div>
+        </div>
+        <div class="main__info">
+            <!--
+                 <p class="line"><em>Write</em> down your thoughts</p>
+            <p class="line"><em>Plan</em> your day</p>
+            <p class="line"><em>Share</em> your creativity with the world</p>
+            -->
+           <p class="line">Write • Plan • Share</p>
+        </div>
+    </main>
+</body>
+</html>

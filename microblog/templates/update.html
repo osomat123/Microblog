@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <main class="main">
+        <h2>Update Details</h2>
+        <form class="user-form" method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="user-form__input">
+                {{form.username.label(class="user-form__input-label")}}
+
+                {% if form.username.errors %}
+                    {{form.username(class="user-form__input-data-invalid")}}
+                    <div class="invalid-input-message">
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.username(class="user-form__input-data")}}
+                {% endif %}
+            </div>
+            <div class="user-form__input">
+                {{form.email.label(class="user-form__input-label")}}
+
+                {% if form.email.errors %}
+                    {{form.email(class="user-form__input-data-invalid")}}
+                    <div class="invalid-input-message">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.email(class="user-form__input-data")}}
+                {% endif %}
+            </div>
+            <div class="user-form__input">
+                {{form.picture.label(class="user-form__input-label")}}
+                {{form.picture()}}
+                <br/>
+                {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                        <span class="invalid-input-message">{{ error }}</span>
+                        {% endfor %}
+                {% endif %}
+            </div>
+            <div class="user-form__submit">
+                {{form.submit(class="form__submit")}}
+            </div>
+        </form>
+    </main>
+{% endblock %}

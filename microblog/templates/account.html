@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <main class="main">
+
+        <section class="userInfo">
+            <img class="userInfo-profile_pic" src="{{url_for('static', filename='profile_pics/' + current_user.profile_pic)}}">
+            <div class="userInfo__details">
+                <h1 class="userInfo__details-username">{{ current_user.username }}</h1>
+                <p class="userInfo__details-email">{{ current_user.email }}</p>
+                <div class="userInfo__details__stats">
+                    <p>Posts: 69</p>
+                    <p>Date Joined: April 20, 2020</p>
+                </div>
+                <div class="form__submit link-button">
+                    <a href="{{url_for('update')}}" class="link">Update</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="userPosts">
+            User Posts here
+        </section>
+
+    </main>
+{% endblock %}

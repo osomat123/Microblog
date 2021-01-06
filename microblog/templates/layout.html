@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microblog</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" />
+    <link rel="icon" href="{{url_for('static', filename='images/logo.svg')}}">
+</head>
+<body>
+    
+    <header class="navbar">
+        <div class="navbar__brand">
+            <img class="navbar__logo" src="/static/images/logo.svg" alt="Microblog Logo" />
+            <a href="" class="navbar__brand-link" href="{{url_for('home')}}">Microblog</a>
+        </div>
+        <ul class="navbar__navigation">
+            {% if current_user.is_authenticated %}
+            <li class="navbar__navigation-item"><a href="{{url_for('account')}}" class="navbar__link">{{current_user.username}}</a></li>
+            <li class="navbar__navigation-item"><a href="{{url_for('logout')}}" class="navbar__link">Logout</a></li>
+            {% else %}
+            <li class="navbar__navigation-item"><a href="{{url_for('login')}}" class="navbar__link">Login</a></li>
+            <li class="navbar__navigation-item"><a href="{{url_for('register')}}" class="navbar__link">Sign Up</a></li>
+            {% endif %}      
+        </ul>
+    </header>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %} {% endblock %}
+
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left">
+                <a href="https://www.linkedin.com/in/tejpunj-raju" class="footer__item" target="_blank">Made by Tejpunj Raju</a>
+                <a href="https://www.linkedin.com/in/jslvtr/" class="footer__item" target="_blank">Designed by Jose Salvatierra</a>
+            </section>
+            <section class="right">
+                <a href="#" class="footer__item" target="_blank">
+                    <img class="footer__item-logo" src="{{url_for('static', filename='images/github.png')}}" />Github
+                </a>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>
